@@ -38,7 +38,7 @@ export default function Results() {
       setVotes(votes.data)
     }
     fetchVotes()
-  }, [selectedCityId]);
+  }, [cities, selectedCityId]);
 
   function handleCityChange(cityId) {
     let index = cities.findIndex(c => c.id === cityId);
