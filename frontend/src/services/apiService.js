@@ -10,3 +10,11 @@ const api = axios.create({
 export function getCities() {
   return api.get('/cities')
 }
+
+export function getVotes(cityId) {
+  return api.get(`/election?cityId=${cityId}`)
+}
+
+export function getCandidates() {
+  return api.get(`/candidates`)
+}

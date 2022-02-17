@@ -1,6 +1,6 @@
 import React from "react";
 
-export default function CityStatistics({city}) {
+export default function CityStatistics({city, numOfCandidates}) {
 
   if (!city) {
     return <div>No City Selected</div>
@@ -30,7 +30,7 @@ export default function CityStatistics({city}) {
           <span>{presence.toLocaleString()}</span>
         </div>
       </div>
-      <div className="text-sm">0 Candidatos</div>
+      <div className="text-sm">{numOfCandidates} Candidatos</div>
     </>
   );
 }
