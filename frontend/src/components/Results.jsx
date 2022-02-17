@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { getCities, getCandidates, getVotes } from "../services/apiService";
+import Candidates from "./Candidates";
 
 import CitySelector from "./CitySelector";
 import CityStatistics from "./CityStatistics";
@@ -37,7 +38,7 @@ export default function Results() {
       setVotes(votes.data)
     }
     fetchVotes()
-  }, [cities]);
+  }, [selectedCityId]);
 
   function handleCityChange(cityId) {
     let index = cities.findIndex(c => c.id === cityId);
@@ -48,6 +49,7 @@ export default function Results() {
     <div className="flex flex-col items-center space-y-3">
       <CitySelector cities={cities} onSelectCity={handleCityChange}></CitySelector>
       <CityStatistics city={cities[selectedCityId]} numOfCandidates={votes.length}></CityStatistics>
+      <Candidates city={cities[selectedCityId]} votes={votes} candidates={candidates}></Candidates>
     </div>
   );
 }
